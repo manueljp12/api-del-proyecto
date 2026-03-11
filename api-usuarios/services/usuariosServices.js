@@ -72,7 +72,10 @@ async function obtenerUsuarioPorId(idUsuario) {
 }
 
 // Crear nuevo usuario
-async function crearUsuario(data) {
+async function crearUsuario(data = {}) {
+    if (!data || Object.keys(data).length === 0) {
+        return { success: false, message: 'Body requerido' };
+    }
     const { usuario, password, cedula, nombres, apellidos, correo, telefono, idRol } = data;
     
     if (!usuario || !password || !nombres || !apellidos || !idRol) {
@@ -108,7 +111,10 @@ async function crearUsuario(data) {
 }
 
 // Editar usuario
-async function editarUsuario(data) {
+async function editarUsuario(data = {}) {
+    if (!data || Object.keys(data).length === 0) {
+        return { success: false, message: 'Body requerido' };
+    }
     const { idUsuario, usuario, cedula, nombres, apellidos, correo, telefono, idRol, password } = data;
     
     if (!idUsuario || !usuario || !nombres || !apellidos || !idRol) {

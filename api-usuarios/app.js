@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 
 const usuariosRoutes = require("./routes/usuariosRoutes");
 
@@ -10,7 +11,7 @@ app.use(express.json());
 
 app.use("/api/usuario", usuariosRoutes)
 
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 app.listen(port,()=> {
     console.log(`servidor corriendo en el puerto ${port}`)

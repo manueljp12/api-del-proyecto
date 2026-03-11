@@ -5,14 +5,14 @@ const usuariosControllers = require("../controllers/usuariosControllers")
 
 router.get("/", usuariosControllers.obtenerUsuarios);
 
-router.get("/id:", usuariosControllers.obtenerUsuario);
-
 router.post("/", usuariosControllers.crearUsuario);
 
-router.put("/", usuariosControllers.editarUsuario);
+router.put("/editar", usuariosControllers.editarUsuario);
 
-router.delete("/id:", usuariosControllers.eliminarUsuario);
+router.delete("/:id", usuariosControllers.eliminarUsuario);
 
 router.get("/roles/lista", usuariosControllers.obtenerRoles);
+
+router.get("/:id", usuariosControllers.obtenerUsuario);
 
 module.exports = router;
